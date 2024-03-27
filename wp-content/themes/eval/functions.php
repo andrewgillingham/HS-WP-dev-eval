@@ -173,6 +173,25 @@ function blankslate_comment_count( $count ) {
 require_once __DIR__ . '/inc/custom-post-types.php';
 require_once __DIR__ . '/inc/custom-taxonomies.php';
 
+function eval_register_scripts_and_styles() {
+	$asset_file = array(
+		'dependencies' => array(),
+		'version'      => wp_get_theme()->get( 'Version' ),
+	);
+
+	if ( file_exists( get_stylesheet_directory() . '/build/theme/index.asset.php' ) ) {
+		$asset_file = include get_stylesheet_directory() . '/build/theme/index.asset.php';
+	}
+
+	$dependencies = $asset_file['dependencies'];
+	$version      = $asset_file['version'];
+
+	wp_enqueue_style( 'eval-theme-style', get_stylesheet_directory_uri() . '/build/theme/style-index.css', array(), $version );
+	wp_enqueue_script( 'eval-theme-script', get_stylesheet_directory_uri() . '/build/theme/index.js', $dependencies, $version, true );
+}
+
+add_action( 'wp_enqueue_scripts', 'eval_register_scripts_and_styles' );
+
 function eval_get_location_by_ip( $specific_ip = null ) {
 	$ip = $specific_ip ?: $_SERVER['REMOTE_ADDR'];
 
