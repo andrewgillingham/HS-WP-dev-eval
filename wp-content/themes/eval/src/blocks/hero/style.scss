@@ -6,6 +6,12 @@
  */
 
 .wp-block-eval-hero {
+  &.section {
+    @media (min-width: 992px) {
+      padding-top: 10rem;
+      padding-bottom: 5rem;
+    }
+  }
   h1 {
     margin-bottom: 0;
   }
