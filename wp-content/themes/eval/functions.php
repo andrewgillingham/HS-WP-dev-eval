@@ -172,3 +172,46 @@ function blankslate_comment_count( $count ) {
 
 require_once __DIR__ . '/inc/custom-post-types.php';
 require_once __DIR__ . '/inc/custom-taxonomies.php';
+
+function eval_get_location_by_ip( $specific_ip = null ) {
+	$ip = $specific_ip ?: $_SERVER['REMOTE_ADDR'];
+
+	// Try to get the location data from the transient
+	// Note: potentially not the best way to store the location data, but it's a simple way to cache the data
+	$location = get_transient( 'location_by_ip_' . $ip );
+
+	// If the transient exists, return the location data
+	if ( $location ) {
+		return $location;
+	}
+
+	// If the transient does not exist, fetch the data from the API
+
+	$res = wp_remote_get( "https://ipapi.co/$ip/json/" );
+	if ( ! is_wp_error( $res ) && wp_remote_retrieve_response_code( $res ) === 200 ) {
+		$body = wp_remote_retrieve_body( $res );
+		if ( $body ) {
+			$data = json_decode( $body );
+			if ( $data->reserved ) {
+				// Since localhost is by definition a reserved IP, try to hit an API to get the IP - normally we shouldn't get here when not in development
+				$res = wp_remote_get( 'https://api.ipify.org?format=json' );
+				if ( ! is_wp_error( $res ) && wp_remote_retrieve_response_code( $res ) === 200 ) {
+					$body = wp_remote_retrieve_body( $res );
+					$data = json_decode( $body );
+					if ( $data->ip ) {
+						return eval_get_location_by_ip( $data->ip );
+					}
+				}
+			}
+		}
+		$location = json_decode( $body, true );
+
+		// Store the location data in a transient, expires after 1 hour
+		set_transient( 'location_by_ip_' . $ip, $location, HOUR_IN_SECONDS );
+
+		return $location;
+	}
+
+	// Return a default location if the API call fails
+	return array( 'city' => 'Raleigh' );
+}
