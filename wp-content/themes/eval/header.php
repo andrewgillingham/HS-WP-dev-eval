@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> <?php blankslate_schema_type(); ?>>
+<html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
@@ -7,22 +7,27 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="wrapper" class="hfeed">
-<header id="header" role="banner">
-<div id="branding">
-<div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-<?php
-if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; }
-echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home" itemprop="url"><span itemprop="name">' . esc_html( get_bloginfo( 'name' ) ) . '</span></a>';
-if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1>'; }
-?>
-</div>
-<div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>><?php bloginfo( 'description' ); ?></div>
-</div>
-<nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
-<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
-<div id="search"><?php get_search_form(); ?></div>
-</nav>
-</header>
-<div id="container">
-<main id="content" role="main">
+<div class="wrapper hfeed">
+	<header class="header" role="banner">
+		<div class="header__content">
+			<?php get_template_part( 'template-parts/mobile-toggle' ); ?>
+			<?php
+				printf(
+					'<a aria-label="Return to home" class="header__home-link" href="%s" title="%s" rel="home">
+						<span class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path style="fill: currentColor" d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+						</span>
+					</a>',
+					esc_url( home_url( '/' ) ),
+					esc_attr( get_bloginfo( 'name' ) ),
+					esc_url( get_stylesheet_directory_uri() . '/assets/images/fa-house.svg' )
+				);
+				$location = eval_get_location_by_ip();
+				if ( $location ) {
+					printf( '<span><strong>Our gutters available in %s</strong></span>', $location['city'] );
+				}
+			?>
+			<?php get_template_part( 'template-parts/nav', 'main' ); ?>
+		</div>
+	</header>
+	<main id="content" role="main">

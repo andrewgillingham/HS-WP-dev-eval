@@ -1,0 +1,17 @@
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+);
+
+@mixin media-breakpoint-up($size) {
+  $breakpoint: map-get($breakpoints, $size);
+
+  @if $breakpoint {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown screen size '#{$size}'. Please use sm, md, or lg.";
+  }
+}
