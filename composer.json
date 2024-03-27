@@ -1,0 +1,19 @@
+{
+  "name": "andrew/hs-wp-dev-eval",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "wpackagist-plugin/advanced-custom-fields": "*",
+    "wpackagist-plugin/akismet": "*",
+    "wpackagist-plugin/wordpress-seo": "*"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  }
+}
