@@ -4,7 +4,7 @@
 
 .header {
   &__content {
-    padding: 2rem;
+    padding: $default_padding;
     display: grid;
     grid-template-columns: auto auto 1fr;
     gap: 2.4rem;
@@ -19,18 +19,29 @@
   }
 }
 
-.section {
-  padding: 2rem;
+.footer {
+  background: lighten($color: #000000, $amount: 10%);
+  padding: $default_padding;
+  color: #fff;
 
-  &__contained-content {
-    max-width: 1000px;
-    margin: 0 auto;
+  &__content {
+    display: grid;
+    gap: 2.4rem;
+
+    @include media-breakpoint-up('lg') {
+      align-items: center;
+      grid-template-columns: auto 1fr;
+    }
   }
 }
 
-.mobile-toggle {
-  position: static;
-  z-index: 15;
+.section {
+  padding: $default_padding;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .nav {
@@ -80,9 +91,33 @@
       }
     }
   }
+
+  &--footer {
+    > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      @include media-breakpoint-up('lg') {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+
+      a {
+        color: #fff;
+
+        &:hover {
+          text-decoration: underline;
+          color: $primary;
+        }
+      }
+    }
+  }
 }
 
 .mobile-toggle {
+  position: static;
+  z-index: 15;
   color: $primary;
   appearance: none;
   background-color: transparent;
