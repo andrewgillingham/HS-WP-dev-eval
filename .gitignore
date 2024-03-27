@@ -65,6 +65,7 @@ wp-content/plugins/hello.php
 /wp-content/themes/twentytwenty
 /wp-content/themes/twenty*
 /wp-content/themes/index.php
+/wp-content/themes/eval/build
 /wp-content/plugins
 
 # large/disallowed file types
