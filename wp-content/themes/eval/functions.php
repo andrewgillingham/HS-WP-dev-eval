@@ -193,6 +193,12 @@ function eval_register_scripts_and_styles() {
 
 add_action( 'wp_enqueue_scripts', 'eval_register_scripts_and_styles' );
 
+function eval_register_blocks() {
+	register_block_type( get_stylesheet_directory() . '/build/blocks/hero' );
+}
+
+add_action( 'init', 'eval_register_blocks' );
+
 function eval_get_location_by_ip( $specific_ip = null ) {
 	$ip = $specific_ip ?: $_SERVER['REMOTE_ADDR'];
 

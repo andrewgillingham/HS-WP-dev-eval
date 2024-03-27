@@ -17,7 +17,7 @@ body {
 
 a {
   color: $primary;
-  transition: color;
+  transition: color 0.15s;
   text-decoration: none;
 
   &:hover {
@@ -27,9 +27,18 @@ a {
 }
 
 h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0.15em;
+  margin-bottom: 0.25em;
+}
+
+h1,
 .h1 {
-  font-size: clamp(2.4rem, 4vw, 3.6rem);
-  font-weight: 700;
+  font-size: clamp(3.6rem, 4vw, 6.2rem);
+  font-weight: 800;
 }
 
 h2,

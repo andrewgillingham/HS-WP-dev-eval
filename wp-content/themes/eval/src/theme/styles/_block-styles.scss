@@ -1,0 +1,14 @@
+.wp-block-button {
+  &__link {
+    border-radius: 0.5rem;
+    color: #fff;
+    background-color: #000;
+    transition: background-color 0.15s;
+
+    &:hover {
+      background-color: $primary-hover;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
