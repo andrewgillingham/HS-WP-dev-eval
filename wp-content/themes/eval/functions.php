@@ -169,3 +169,6 @@ function blankslate_comment_count( $count ) {
 		return $count;
 	}
 }
+
+require_once __DIR__ . '/inc/custom-post-types.php';
+require_once __DIR__ . '/inc/custom-taxonomies.php';
