@@ -9,16 +9,20 @@ import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save({ attributes }) {
-  const blockProps = useBlockProps.save({
-    className: 'section',
-  });
-  return (
-    <section {...blockProps}>
-      <div class="content-container">
-        <RichText.Content style={{ textAlign: 'center' }} tagName="h2" value={attributes.title} />
-        [taxonomy_query]
-      </div>
-    </section>
-  );
+export default function save( { attributes } ) {
+	const blockProps = useBlockProps.save( {
+		className: 'section',
+	} );
+	return (
+		<section { ...blockProps }>
+			<div class="content-container">
+				<RichText.Content
+					style={ { textAlign: 'center' } }
+					tagName="h2"
+					value={ attributes.title }
+				/>
+				[taxonomy_query]
+			</div>
+		</section>
+	);
 }

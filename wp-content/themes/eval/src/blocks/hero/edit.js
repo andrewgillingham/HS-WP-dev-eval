@@ -11,38 +11,50 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit() {
-  return (
-    <div {...useBlockProps()}>
-      <InnerBlocks
-        template={[
-          [
-            'core/columns',
-            {},
-            [
-              [
-                'core/column',
-                {
-                  width: '55%',
-                  verticalAlignment: 'middle',
-                },
-                [
-                  ['core/heading', { placeholder: 'Enter title...', level: 1 }],
-                  ['core/paragraph', { placeholder: 'Enter description...' }],
-                  ['core/button', { placeholder: 'Add Link Text' }],
-                ],
-              ],
-              [
-                'core/column',
-                {
-                  width: '45%',
-                },
-                [['core/image']],
-              ],
-            ],
-          ],
-        ]}
-        templateLock="all"
-      />
-    </div>
-  );
+	return (
+		<div { ...useBlockProps() }>
+			<InnerBlocks
+				template={ [
+					[
+						'core/columns',
+						{},
+						[
+							[
+								'core/column',
+								{
+									width: '55%',
+									verticalAlignment: 'middle',
+								},
+								[
+									[
+										'core/heading',
+										{
+											placeholder: 'Enter title...',
+											level: 1,
+										},
+									],
+									[
+										'core/paragraph',
+										{ placeholder: 'Enter description...' },
+									],
+									[
+										'core/button',
+										{ placeholder: 'Add Link Text' },
+									],
+								],
+							],
+							[
+								'core/column',
+								{
+									width: '45%',
+								},
+								[ [ 'core/image' ] ],
+							],
+						],
+					],
+				] }
+				templateLock="all"
+			/>
+		</div>
+	);
 }

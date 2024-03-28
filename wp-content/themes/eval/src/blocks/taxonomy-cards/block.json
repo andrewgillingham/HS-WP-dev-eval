@@ -1,32 +1,32 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "eval/taxonomy-cards",
-  "version": "0.1.0",
-  "title": "Taxnomoy Cards",
-  "category": "widgets",
-  "icon": "smiley",
-  "description": "A block to display taxonomy cards under a title.",
-  "example": {},
-  "supports": {
-    "html": false,
-    "color": {
-      "backgroundColor": true
-    }
-  },
-  "attributes": {
-    "title": {
-      "type": "string",
-      "source": "html",
-      "selector": "h2"
-    },
-    "taxonomy": {
-      "type": "string",
-      "default": "category"
-    }
-  },
-  "textdomain": "block-hero",
-  "editorScript": "file:./index.js",
-  "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "eval/taxonomy-cards",
+	"version": "0.1.0",
+	"title": "Taxnomoy Cards",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "A block to display taxonomy cards under a title.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"color": {
+			"backgroundColor": true
+		}
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": "h2"
+		},
+		"taxonomy": {
+			"type": "string",
+			"default": "category"
+		}
+	},
+	"textdomain": "block-hero",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
 }

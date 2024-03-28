@@ -10,14 +10,14 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save() {
-  const blockProps = useBlockProps.save({
-    className: 'section',
-  });
-  return (
-    <section {...blockProps}>
-      <div class="content-container">
-        <InnerBlocks.Content />
-      </div>
-    </section>
-  );
+	const blockProps = useBlockProps.save( {
+		className: 'section',
+	} );
+	return (
+		<section { ...blockProps }>
+			<div class="content-container">
+				<InnerBlocks.Content />
+			</div>
+		</section>
+	);
 }

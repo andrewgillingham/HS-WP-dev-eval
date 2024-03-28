@@ -11,10 +11,14 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit() {
-  return (
-    <div {...useBlockProps()}>
-      <h2>Gallery</h2>
-      <InnerBlocks allowedBlocks={['core/gallery']} template={[['core/gallery', { columns: 3, images: [] }]]} templateLock="all" />
-    </div>
-  );
+	return (
+		<div { ...useBlockProps() }>
+			<h2>Gallery</h2>
+			<InnerBlocks
+				allowedBlocks={ [ 'core/gallery' ] }
+				template={ [ [ 'core/gallery', { columns: 3, images: [] } ] ] }
+				templateLock="all"
+			/>
+		</div>
+	);
 }

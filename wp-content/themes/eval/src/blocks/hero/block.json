@@ -1,21 +1,21 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "eval/hero",
-  "version": "0.1.0",
-  "title": "Hero",
-  "category": "widgets",
-  "icon": "smiley",
-  "description": "Basic hero block with title and text on left and image on right",
-  "example": {},
-  "supports": {
-    "html": false,
-    "color": {
-      "backgroundColor": true
-    }
-  },
-  "textdomain": "block-hero",
-  "editorScript": "file:./index.js",
-  "editorStyle": "file:./index.css",
-  "style": "file:./index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "eval/hero",
+	"version": "0.1.0",
+	"title": "Hero",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Basic hero block with title and text on left and image on right",
+	"example": {},
+	"supports": {
+		"html": false,
+		"color": {
+			"backgroundColor": true
+		}
+	},
+	"textdomain": "block-hero",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./index.css"
 }

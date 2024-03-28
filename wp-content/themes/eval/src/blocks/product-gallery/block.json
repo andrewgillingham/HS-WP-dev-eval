@@ -1,21 +1,21 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "eval/product-gallery",
-  "version": "0.1.0",
-  "title": "Product Gallery",
-  "category": "widgets",
-  "icon": "smiley",
-  "description": "A block for displaying a product gallery.",
-  "example": {},
-  "supports": {
-    "html": false,
-    "color": {
-      "backgroundColor": true
-    }
-  },
-  "textdomain": "block-gallery",
-  "editorScript": "file:./index.js",
-  "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "eval/product-gallery",
+	"version": "0.1.0",
+	"title": "Product Gallery",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "A block for displaying a product gallery.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"color": {
+			"backgroundColor": true
+		}
+	},
+	"textdomain": "block-gallery",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
 }
