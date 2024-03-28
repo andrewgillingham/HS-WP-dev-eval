@@ -195,6 +195,9 @@ add_action( 'wp_enqueue_scripts', 'eval_register_scripts_and_styles' );
 
 function eval_register_blocks() {
 	register_block_type( get_stylesheet_directory() . '/build/blocks/hero' );
+	register_block_type( get_stylesheet_directory() . '/build/blocks/product-info' );
+	register_block_type( get_stylesheet_directory() . '/build/blocks/product-gallery' );
+	register_block_type( get_stylesheet_directory() . '/build/blocks/testimonials' );
 	register_block_type( get_stylesheet_directory() . '/build/blocks/taxonomy-cards', array(
 		'render_callback' => function( $attributes, $content ) {
 			$terms = get_terms( array(

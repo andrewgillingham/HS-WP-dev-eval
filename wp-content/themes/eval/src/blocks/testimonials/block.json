@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eval/testimonials",
+  "version": "0.1.0",
+  "title": "testimonials",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "A block to display testimonials",
+  "example": {},
+  "supports": {
+    "html": false,
+    "color": {
+      "backgroundColor": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2"
+    },
+    "subText": {
+      "type": "string",
+      "source": "html",
+      "selector": "p"
+    },
+    "testimonials": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "textdomain": "block-testimonials",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./style-index.css",
+  "style": "file:./style-index.css"
+}

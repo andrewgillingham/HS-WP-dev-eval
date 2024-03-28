@@ -2,14 +2,14 @@
 
 function eval_register_post_types() {
 	$post_types = array(
-		'gutter' => array(
+		'gutter'      => array(
 			'singular'        => 'Gutter',
 			'plural'          => 'Gutters',
 			'public'          => true,
 			'has_archive'     => true,
 			'capability_type' => 'page',
 			'menu_icon'       => 'dashicons-admin-site',
-			'supports'        => array( 'title', 'thumbnail', 'excerpt' ),
+			'supports'        => array( 'title', 'editor', 'excerpt' ),
 			'taxonomies'      => array( 'gutter_type' ),
 			'labels'          => array(
 				'name'          => 'Gutters',
@@ -21,6 +21,24 @@ function eval_register_post_types() {
 				'view_item'     => 'View Gutter',
 			),
 		),
+		'testimonial' => array(
+			'singular'          => 'Testimonial',
+			'plural'            => 'Testimonials',
+			'public'            => true,
+			'publicy_queryable' => false,
+			'has_archive'       => false,
+			'menu_icon'         => 'dashicons-format-quote',
+			'supports'          => array( 'title', 'excerpt' ),
+			'taxonomies'        => array( 'gutter_type' ),
+			'labels'            => array(
+				'name'          => 'Testimonials',
+				'singular_name' => 'Testimonial',
+				'add_new'       => 'Add New Testimonial',
+				'add_new_item'  => 'Add New Testimonial',
+				'edit_item'     => 'Edit Testimonial',
+				'new_item'      => 'New Testimonial',
+			),
+		),
 
 	);
 
@@ -28,6 +46,7 @@ function eval_register_post_types() {
 
 		$post_type_defaults = array(
 			'public'          => true,
+			'show_in_rest'    => true,
 			'capability_type' => 'post',
 			'has_archive'     => false,
 			'hierarchical'    => false,

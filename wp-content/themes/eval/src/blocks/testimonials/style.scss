@@ -1,0 +1,39 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-eval-testimonials {
+  &.section {
+    @media (min-width: 992px) {
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+    }
+  }
+  .pre-title {
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    background: darken($color: white, $amount: 5%);
+    padding: 2px 6px;
+  }
+  .testimonials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 4rem;
+
+    &__list {
+      display: grid;
+      gap: 2.4rem;
+
+      @media screen and (min-width: 992px) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  .content-container {
+    max-width: 1000px;
+  }
+}
