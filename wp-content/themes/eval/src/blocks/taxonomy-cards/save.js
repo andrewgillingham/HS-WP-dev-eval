@@ -1,4 +1,4 @@
-import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should

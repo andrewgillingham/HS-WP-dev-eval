@@ -20,9 +20,7 @@ import './style.scss';
  */
 
 export default function Edit( { attributes, setAttributes } ) {
-	console.log( '🚀 ~ Edit ~ attributes:', attributes );
 	const [ testimonials, setTestimonials ] = useState( [] );
-	const [ selectedTestimonials, setSelectedTestimonials ] = useState( [] );
 
 	useEffect( () => {
 		// Fetch taxonomies

@@ -5,7 +5,6 @@ import { SelectControl, PanelBody, PanelRow } from '@wordpress/components';
 import {
 	useBlockProps,
 	InspectorControls,
-	InnerBlocks,
 	RichText,
 } from '@wordpress/block-editor';
 import './editor.scss';
