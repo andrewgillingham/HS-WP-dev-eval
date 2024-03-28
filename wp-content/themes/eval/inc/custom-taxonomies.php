@@ -24,7 +24,7 @@ function eval_register_custom_taxonomies() {
 		$taxonomy_defaults = array(
 			'hierarchical' => true,
 			'public'       => true,
-            'show_in_rest' => true,
+			'show_in_rest' => true,
 			'labels'       => array(),
 		);
 
