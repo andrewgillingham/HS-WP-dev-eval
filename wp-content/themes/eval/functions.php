@@ -195,6 +195,30 @@ add_action( 'wp_enqueue_scripts', 'eval_register_scripts_and_styles' );
 
 function eval_register_blocks() {
 	register_block_type( get_stylesheet_directory() . '/build/blocks/hero' );
+	register_block_type( get_stylesheet_directory() . '/build/blocks/taxonomy-cards', array(
+		'render_callback' => function( $attributes, $content ) {
+			$terms = get_terms( array(
+				'taxonomy'   => $attributes['taxonomy'],
+				'hide_empty' => false,
+			) );
+			ob_start(); ?>
+			<div class="taxonomy-cards">
+				<?php foreach ( $terms as $term ) : ?>
+					<?php $taxonomy_image = get_field( 'taxonomy_image', $attributes['taxonomy'] . '_' . $term->term_id ); ?>
+					<div class="taxonomy-card">
+						<?php if ( $taxonomy_image ) : ?>
+							<img src="<?php echo esc_url( $taxonomy_image['url'] ); ?>" alt="<?php echo esc_attr( $taxonomy_image['alt'] ); ?>" />
+						<?php endif; ?>
+						<h3><?php echo esc_html( $term->name ); ?></h3>
+						<p><?php echo esc_html( $term->description ); ?></p>
+					</div>
+				<?php endforeach; ?>
+			</div>
+			<?php $terms_html = ob_get_clean();
+			$new_content = str_replace( '[taxonomy_query]', $terms_html, $content);
+			return $new_content;
+		}
+	) );
 }
 
 add_action( 'init', 'eval_register_blocks' );

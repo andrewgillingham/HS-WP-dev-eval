@@ -1,0 +1,37 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-eval-taxonomy-cards {
+  &.section {
+    @media (min-width: 992px) {
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+    }
+  }
+  h2 {
+    margin-bottom: 2rem;
+  }
+  p {
+    margin-bottom: 1em;
+  }
+
+  .taxonomy-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    text-align: center;
+  }
+
+  .taxonomy-card {
+    img {
+      width: 100%;
+      max-width: 225px;
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+  }
+}

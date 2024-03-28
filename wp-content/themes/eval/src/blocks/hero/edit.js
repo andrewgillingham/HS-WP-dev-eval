@@ -21,14 +21,23 @@ export default function Edit() {
             [
               [
                 'core/column',
-                {},
+                {
+                  width: '55%',
+                  verticalAlignment: 'middle',
+                },
                 [
                   ['core/heading', { placeholder: 'Enter title...', level: 1 }],
                   ['core/paragraph', { placeholder: 'Enter description...' }],
                   ['core/button', { placeholder: 'Add Link Text' }],
                 ],
               ],
-              ['core/column', {}, [['core/image']]],
+              [
+                'core/column',
+                {
+                  width: '45%',
+                },
+                [['core/image']],
+              ],
             ],
           ],
         ]}
