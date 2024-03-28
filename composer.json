@@ -15,5 +15,8 @@
     "allow-plugins": {
       "composer/installers": true
     }
+  },
+  "scripts": {
+    "post-install-cmd": "cd ./wp-content/themes/eval && npm install && npm run build"
   }
 }
